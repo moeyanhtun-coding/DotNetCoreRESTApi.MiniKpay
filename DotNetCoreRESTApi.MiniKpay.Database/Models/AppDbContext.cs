@@ -23,9 +23,10 @@ public partial class AppDbContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-      if (!optionsBuilder.IsConfigured)
+        if (!optionsBuilder.IsConfigured)
         {
-            
+            string connectionString = "Data Source=.;Initial Catalog=DotNetMiniKpay;User ID=sa;Password=sasa@123;TrustServerCertificate=True;";
+            optionsBuilder.UseSqlServer(connectionString);
         }
     }
     protected override void OnModelCreating(ModelBuilder modelBuilder)
