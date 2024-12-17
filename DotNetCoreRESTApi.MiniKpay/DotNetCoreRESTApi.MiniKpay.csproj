@@ -8,7 +8,15 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="7.0.20" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.20" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.20" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DotNetCoreRESTApi.MiniKpay. DataAccess\DotNetCoreRESTApi.MiniKpay. DataAccess.csproj" />
+    <ProjectReference Include="..\DotNetCoreRESTApi.MiniKpay.BusinessLogic\DotNetCoreRESTApi.MiniKpay.BusinessLogic.csproj" />
+    <ProjectReference Include="..\DotNetCoreRESTApi.MiniKpay.Database\DotNetCoreRESTApi.MiniKpay.Database.csproj" />
   </ItemGroup>
 
 </Project>
