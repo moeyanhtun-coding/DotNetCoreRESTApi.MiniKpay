@@ -5,6 +5,10 @@ VisualStudioVersion = 17.13.35507.96 d17.13
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetCoreRESTApi.MiniKpay", "DotNetCoreRESTApi.MiniKpay\DotNetCoreRESTApi.MiniKpay.csproj", "{6CE7B827-2CE9-4610-951E-E1433E94497A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetCoreRESTApi.MiniKpay.Database", "DotNetCoreRESTApi.MiniKpay.Database\DotNetCoreRESTApi.MiniKpay.Database.csproj", "{9E3C57DD-3FA4-4017-9E59-5A456F56FDB0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetCoreRESTApi.MiniKpay.DomainLogic", "DotNetCoreRESTApi.MiniKpay.DomainLogic\DotNetCoreRESTApi.MiniKpay.DomainLogic.csproj", "{734C820A-C819-4613-A98C-172735BBF5C6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{6CE7B827-2CE9-4610-951E-E1433E94497A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6CE7B827-2CE9-4610-951E-E1433E94497A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6CE7B827-2CE9-4610-951E-E1433E94497A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E3C57DD-3FA4-4017-9E59-5A456F56FDB0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E3C57DD-3FA4-4017-9E59-5A456F56FDB0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E3C57DD-3FA4-4017-9E59-5A456F56FDB0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E3C57DD-3FA4-4017-9E59-5A456F56FDB0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{734C820A-C819-4613-A98C-172735BBF5C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{734C820A-C819-4613-A98C-172735BBF5C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{734C820A-C819-4613-A98C-172735BBF5C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{734C820A-C819-4613-A98C-172735BBF5C6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
