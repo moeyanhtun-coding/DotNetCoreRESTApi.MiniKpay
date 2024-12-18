@@ -40,25 +40,18 @@ public class CustomerService
 
     public int UpdatePinCode(string customerCode, PinCodeRequestModel reqModel)
     {
-        try
-        {
-            var item = _db.TblCustomers.AsNoTracking().FirstOrDefault(x => x.CustomerCode == customerCode)!;
-            var validatePinCode = VerifyPinCode(reqModel.oldPinCode, item.PinCode, item.Salt);
-            if (!validatePinCode)
-                throw new ArgumentException("PinCode Changing Failed");
-            byte[] salt = RandomNumberGenerator.GetBytes(128 / 8);
-            var hashed = HashValue(reqModel.newPinCode, salt);
+        var item = _db.TblCustomers.AsNoTracking().FirstOrDefault(x => x.CustomerCode == customerCode)!;
+        var validatePinCode = VerifyPinCode(reqModel.oldPinCode, item.PinCode, item.Salt);
+        if (!validatePinCode)
+            return 0;
+        byte[] salt = RandomNumberGenerator.GetBytes(128 / 8);
+        var hashed = HashValue(reqModel.newPinCode, salt);
 
-            item.Salt = Convert.ToBase64String(salt);
-            item.PinCode = hashed;
-            _db.Entry(item).State = EntityState.Modified;
-            var result = _db.SaveChanges();
-            return result;
-        }
-        catch (Exception ex)
-        {
-            throw new Exception(ex.ToString());
-        }
+        item.Salt = Convert.ToBase64String(salt);
+        item.PinCode = hashed;
+        _db.Entry(item).State = EntityState.Modified;
+        var result = _db.SaveChanges();
+        return result;
     }
 
     public string HashValue(string pinCode, byte[] salt)
@@ -81,7 +74,7 @@ public class CustomerService
             salt: salt,
             prf: KeyDerivationPrf.HMACSHA256,
             iterationCount: 100000,
- numBytesRequested: 256 / 8
+            numBytesRequested: 256 / 8
             ));
         return hashedPinCode == storedHash;
     }

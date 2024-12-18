@@ -18,7 +18,7 @@ public class CustomerController : ControllerBase
         var customerList = _customerService.GetCustomers();
         if (customerList.Count is 0)
         {
-            return Ok(new { message = "CustomerList is Empty"});
+            return Ok(new { message = "CustomerList is Empty" });
         }
         return Ok(customerList);
     }
@@ -37,18 +37,11 @@ public class CustomerController : ControllerBase
     [HttpPatch("{customerCode}")]
     public IActionResult UpdatePinCode(string customerCode, PinCodeRequestModel reqModel)
     {
-        try
+        var result = _customerService.UpdatePinCode(customerCode, reqModel);
+        if (result is 0)
         {
-            var result = _customerService.UpdatePinCode(customerCode, reqModel);
-            if (result is 0)
-            {
-                return BadRequest(new { message = "PinCode Update Fail" });
-            }
-            return Ok(new { message = "PinCode Update Successful" });
+            return BadRequest(new { message = "PinCode Update Fail" });
         }
-        catch (Exception ex)
-        {
-            return BadRequest(new { message = ex.ToString() });
-        }
+        return Ok(new { message = "PinCode Update Successful" });
     }
 }
